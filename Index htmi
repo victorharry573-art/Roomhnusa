@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roomhnusa Real Estate</title>
+</head>
+
+<body>
+  <h1>Roomhnusa Real Estate</h1>
+
+  <h2>Find Your Next Home</h2>
+
+  <p>Homes, apartments and properties for sale and rent.</p>
+
+  <h2>Featured Properties</h2>
+
+  <p>🏠 Beautiful homes available now.</p>
+  <p>🏢 Apartments for rent.</p>
+  <p>📍 Properties in great locations.</p>
+
+  <h2>Contact Us</h2>
+
+  <p>Interested in a property? Contact us today.</p>
+</body>
+</html>
