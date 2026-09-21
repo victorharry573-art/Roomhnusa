@@ -1,26 +1,419 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Roomhnusa Real Estate</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Roomhnusa Real Estate</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: #102a43;
+  background: #f5f9fc;
+  line-height: 1.6;
+}
+
+header {
+  background: white;
+  padding: 18px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 2px 12px rgba(0,0,0,.08);
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #075985;
+}
+
+.logo span {
+  color: #1597e5;
+}
+
+nav a {
+  text-decoration: none;
+  color: #183b56;
+  margin-left: 22px;
+  font-weight: 600;
+}
+
+.hero {
+  min-height: 520px;
+  padding: 90px 7%;
+  color: white;
+  display: flex;
+  align-items: center;
+  background:
+    linear-gradient(rgba(3,30,52,.65),rgba(3,30,52,.65)),
+    url("https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1600&q=80")
+    center/cover;
+}
+
+.hero-content {
+  max-width: 650px;
+}
+
+.hero small {
+  letter-spacing: 3px;
+  font-weight: bold;
+}
+
+.hero h1 {
+  font-size: 52px;
+  line-height: 1.1;
+  margin: 15px 0;
+}
+
+.hero h1 span {
+  color: #38bdf8;
+}
+
+.hero p {
+  font-size: 19px;
+  margin-bottom: 30px;
+}
+
+.search-box {
+  background: white;
+  padding: 18px;
+  border-radius: 14px;
+  display: flex;
+  gap: 12px;
+  max-width: 900px;
+  margin-top: 25px;
+}
+
+.search-box input,
+.search-box select {
+  flex: 1;
+  padding: 14px;
+  border: 1px solid #d9e2ec;
+  border-radius: 8px;
+  min-width: 0;
+}
+
+.btn {
+  background: #0879bd;
+  color: white;
+  border: none;
+  padding: 14px 22px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+section {
+  padding: 65px 7%;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.section-title h2 {
+  font-size: 34px;
+  margin-bottom: 8px;
+}
+
+.section-title p {
+  color: #627d98;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(16,42,67,.1);
+  transition: .2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 20px;
+}
+
+.tag {
+  display: inline-block;
+  background: #e0f2fe;
+  color: #0369a1;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.card h3 {
+  margin: 12px 0 5px;
+}
+
+.location {
+  color: #627d98;
+  font-size: 14px;
+}
+
+.price {
+  color: #075985;
+  font-size: 22px;
+  font-weight: bold;
+  margin-top: 12px;
+}
+
+.features {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #e5e7eb;
+  margin-top: 15px;
+  padding-top: 12px;
+  color: #627d98;
+  font-size: 13px;
+}
+
+.about {
+  background: white;
+  text-align: center;
+}
+
+.about-box {
+  max-width: 800px;
+  margin: auto;
+}
+
+.about h2 {
+  font-size: 35px;
+  margin-bottom: 15px;
+}
+
+.cta {
+  background: linear-gradient(135deg,#075985,#0ea5e9);
+  color: white;
+  text-align: center;
+  padding: 55px 7%;
+}
+
+.cta h2 {
+  font-size: 34px;
+  margin-bottom: 12px;
+}
+
+.cta .btn {
+  background: white;
+  color: #075985;
+  margin-top: 20px;
+}
+
+footer {
+  background: #071e33;
+  color: white;
+  padding: 40px 7%;
+  text-align: center;
+}
+
+footer p {
+  color: #b8c7d9;
+  margin-top: 8px;
+}
+
+.whatsapp {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  background: #25D366;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 5px 15px rgba(0,0,0,.2);
+}
+
+@media (max-width: 800px) {
+  nav {
+    display: none;
+  }
+
+  .hero {
+    padding: 70px 6%;
+  }
+
+  .hero h1 {
+    font-size: 38px;
+  }
+
+  .search-box {
+    flex-direction: column;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
 </head>
 
 <body>
-  <h1>Roomhnusa Real Estate</h1>
 
-  <h2>Find Your Next Home</h2>
+<header>
+  <div class="logo">Room<span>hnusa</span></div>
 
-  <p>Homes, apartments and properties for sale and rent.</p>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#properties">Properties</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-  <h2>Featured Properties</h2>
+<section class="hero">
+  <div class="hero-content">
+    <small>FIND YOUR DREAM HOME</small>
 
-  <p>🏠 Beautiful homes available now.</p>
-  <p>🏢 Apartments for rent.</p>
-  <p>📍 Properties in great locations.</p>
+    <h1>
+      Welcome to <span>Roomhnusa</span>
+      Real Estate
+    </h1>
 
-  <h2>Contact Us</h2>
+    <p>
+      Discover beautiful homes, apartments and properties
+      for sale and rent.
+    </p>
 
-  <p>Interested in a property? Contact us today.</p>
+    <div class="search-box">
+      <input type="text" placeholder="Location">
+
+      <select>
+        <option>Property Type</option>
+        <option>House</option>
+        <option>Apartment</option>
+        <option>Villa</option>
+      </select>
+
+      <button class="btn">Search</button>
+    </div>
+  </div>
+</section>
+
+<section id="properties">
+
+  <div class="section-title">
+    <h2>Featured Properties</h2>
+    <p>Handpicked properties for your next chapter.</p>
+  </div>
+
+  <div class="cards">
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80">
+
+      <div class="card-content">
+        <span class="tag">FOR SALE</span>
+        <h3>Modern Family House</h3>
+        <p class="location">📍 Bali, Indonesia</p>
+        <p class="price">$350,000</p>
+
+        <div class="features">
+          <span>🛏 3 Beds</span>
+          <span>🛁 2 Baths</span>
+          <span>📐 180 m²</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=900&q=80">
+
+      <div class="card-content">
+        <span class="tag">FOR RENT</span>
+        <h3>Luxury Apartment</h3>
+        <p class="location">📍 Jakarta, Indonesia</p>
+        <p class="price">$1,200 / month</p>
+
+        <div class="features">
+          <span>🛏 2 Beds</span>
+          <span>🛁 2 Baths</span>
+          <span>📐 120 m²</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=900&q=80">
+
+      <div class="card-content">
+        <span class="tag">FOR SALE</span>
+        <h3>Villa with Private Pool</h3>
+        <p class="location">📍 Bali, Indonesia</p>
+        <p class="price">$550,000</p>
+
+        <div class="features">
+          <span>🛏 4 Beds</span>
+          <span>🛁 3 Baths</span>
+          <span>📐 250 m²</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="about" class="about">
+  <div class="about-box">
+    <h2>Your Trusted Real Estate Partner</h2>
+
+    <p>
+      At Roomhnusa, we connect people with beautiful properties
+      for buying, renting and investing. Our goal is to make
+      your real estate journey simple and stress-free.
+    </p>
+  </div>
+</section>
+
+<section class="cta" id="contact">
+  <h2>Ready to Find Your Dream Property?</h2>
+
+  <p>Contact Roomhnusa today and let us help you find the right home.</p>
+
+  <a class="btn" href="mailto:hello@roomhnusa.com">
+    Contact Us
+  </a>
+</section>
+
+<footer>
+  <h2>Roomhnusa Real Estate</h2>
+  <p>Better Homes. Brighter Futures.</p>
+  <p>© 2026 Roomhnusa. All rights reserved.</p>
+</footer>
+
+<a class="whatsapp" href="https://wa.me/6280000000000">
+  WhatsApp Us
+</a>
+
 </body>
 </html>
